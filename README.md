@@ -7,8 +7,8 @@ FileInfo object will contain:
 -getFileLength() returns file length as an int
 -getPath() returns path of the file as a string
 -getFileContent() returns ArrayList<String> full of file contents arranged linexline
--remove(int z) removes from FileContent array the index of the int passed
-
+-remove(int z) removes from FileContents array the index of the int passed
+-removeComments() removes comments from FileContents array
 Pass object to the intialization InitState class to run through the
 array to find initialization statements, create an
 object for each statement found

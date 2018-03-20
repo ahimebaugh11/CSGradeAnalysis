@@ -20,13 +20,9 @@ public class runnerVariableIllustrator {
             e.printStackTrace();
         }
 
+
+        x.removeComments();
         InitStates y = new InitStates(x);
-
-
-
-
-
-
 
 
         //tests InitState Methods

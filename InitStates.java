@@ -31,6 +31,7 @@ public class InitStates {
 
         tempFileContents = x.getFileContent();
 
+
         //tests if a given line is an init statement, runs through
         //every line in the passed program
         for (int i = 0; i < x.getFileLength()-1 ; i++) {
@@ -42,26 +43,32 @@ public class InitStates {
             else if(tempLine.toLowerCase().contains(initString2.toLowerCase())){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+
             }
             else if(tempLine.toLowerCase().contains(initString3.toLowerCase())){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+
             }
             else if(tempLine.toLowerCase().contains(initString4.toLowerCase())){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+
             }
             else if(tempLine.toLowerCase().contains(initString5.toLowerCase())){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+
             }
             else if(tempLine.toLowerCase().contains(initString6.toLowerCase())){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+
             }
             else if(tempLine.toLowerCase().contains(initString7.toLowerCase())){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+
             }
         }
     }
