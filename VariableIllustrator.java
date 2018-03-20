@@ -10,21 +10,17 @@ import java.io.*;
 
 public class VariableIllustrator {
 
+
     public static void main(String args[]) throws IOException{
         FileInfo x = null;
+
         try{
         x = new FileInfo("C:\\Users\\drewh\\Desktop\\Projects\\Eclipse Workspace\\groupProject\\src\\groupProject\\wordRandomizer.java");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        InitState y = new InitState(x);
-        int i = 0;
-        //NEED A LIST OF INITSTATE OBJECTS
-        do{
-            x.remove(i);
-            i++;
-        }while(x.getFileContent() != null && i<y.getInitLineNum());
+        InitStates y = new InitStates(x);
 
 
 
@@ -33,10 +29,11 @@ public class VariableIllustrator {
 
 
 
-
-//tests InitState Methods
+        //tests InitState Methods
         System.out.println("");
-        System.out.println(y.getInitLineNum()+": "+y.getLineContents());
+        for (int i = 0; i < (y.getInitLineNumArr()).size()-1; i++) {
+            System.out.println(y.getInitLineNum(i)+": "+y.getInitLineContents(i));
+        }
 
 
 

@@ -7,9 +7,11 @@ import java.io.*;
 
 public class FileInfo {
 
-    private String path;
+
+    //accessor methods present
     private int fileLength;
     private List<String> fileContent = new ArrayList<String>();
+    private String path; //instance for the file path
 
 
     public FileInfo(String filePath) throws IOException {
@@ -27,7 +29,7 @@ public class FileInfo {
             e.printStackTrace();
         }
 
-        fileLength = fileContent.size() - 1;
+        fileLength = fileContent.size() - 1; // sets fileLength to size of FileContent Arr
     }
 
 
@@ -44,7 +46,9 @@ public class FileInfo {
         return fileContent;
     }
 
+    //removes lines from fileContent Array
     public void remove(int z){
+
         fileContent.remove(z);
     }
 

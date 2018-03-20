@@ -15,8 +15,11 @@ array to find initialization statements, create an
 object for each statement found
 
 InitState object will contain:
--getInitLineNum() returns the line number of the initialization statement
--getLineContents() returns the line contents of the init statement
+-getInitLineNumArr() returns ArrayList of the initialization statements' line numbers
+-getInitLineContents() returns ArrayList of the initialization statements' content linexline
+-getInitLineNum(int x) returns the line number of the initialization statement specified
+by index
+-getInitLineContents() returns the line contents of the init statement specified by index
 
 
 Pass InitState object and FileInfo object to UseLocator class to run through arrayList from FileInfo object to look
