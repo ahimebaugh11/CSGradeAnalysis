@@ -11,6 +11,9 @@ InitState object will contain:
 -getInitLineNum(int x) returns the line number of the initialization statement specified
 by index
 -getInitLineContents() returns the line contents of the init statement specified by index
+-getInitContentsLength() returns the length of initLineContents Arraylist
+-removeComments() runs through InitLineContents and removes all comments to
+prevent false positives
 
 Finalizer Class:
 -recieves FileInfo object

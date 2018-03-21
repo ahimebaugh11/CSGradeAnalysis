@@ -15,19 +15,20 @@ public class runnerVariableIllustrator {
         FileInfo x = null;
 
         try{
-        x = new FileInfo("C:\\Users\\drewh\\Desktop\\Projects\\Eclipse Workspace\\groupProject\\src\\groupProject\\wordRandomizer.java");
+        x = new FileInfo("C:\\Users\\drewh\\Desktop\\Projects\\IntelliJ\\Side Projects\\variableIllustrator\\src\\testerVarIllus.java");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        x.removeComments();
+
         InitStates y = new InitStates(x);
+        y.removeComments();
 
 
         //tests InitState Methods
         System.out.println("");
-        for (int i = 0; i < (y.getInitLineNumArr()).size()-1; i++) {
+        for (int i = 0; i < y.getInitContentsLength(); i++) {
             System.out.println(y.getInitLineNum(i)+": "+y.getInitLineContents(i));
         }
 

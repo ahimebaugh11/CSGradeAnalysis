@@ -14,63 +14,63 @@ public class InitStates {
     //accessor methods present for these and their individual values
     private List<String> initLineContents = new ArrayList<String>();
     private List<Integer> initLineNum = new ArrayList<Integer>();
-
-    //used for testing to see if it's an init statement
-    private String initString1 = "int ";
-    private String initString2 = "String ";
-    private String initString3 = "double ";
-    private String initString4 = "float ";
-    private String initString5 = "long ";
-    private String initString6 = "char ";
-    private String initString7 = "short ";
-
-
-
+    private int initContentsLength;
 
     public InitStates(FileInfo x) {
 
         tempFileContents = x.getFileContent();
-
-
+        
         //tests if a given line is an init statement, runs through
         //every line in the passed program
-        for (int i = 0; i < x.getFileLength()-1 ; i++) {
+        for (int i = 0; i < x.getFileLength(); i++) {
             tempLine = tempFileContents.get(i);
-            if(tempLine.toLowerCase().contains(initString1.toLowerCase())) {
+            System.out.println("****"+tempLine+"****");
+            if(tempLine.contains(" int")){
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
             }
-            else if(tempLine.toLowerCase().contains(initString2.toLowerCase())){
+            else if(tempLine.contains("\tint ")) {
                 initLineNum.add(i+1);
                 initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("String ")) {
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("double ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("float ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains(" long ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("\tlong ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("char ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("short ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
+            else if(tempLine.contains("boolean ")){
+                initLineNum.add(i+1);
+                initLineContents.add(tempLine);
+            }
 
-            }
-            else if(tempLine.toLowerCase().contains(initString3.toLowerCase())){
-                initLineNum.add(i+1);
-                initLineContents.add(tempLine);
-
-            }
-            else if(tempLine.toLowerCase().contains(initString4.toLowerCase())){
-                initLineNum.add(i+1);
-                initLineContents.add(tempLine);
-
-            }
-            else if(tempLine.toLowerCase().contains(initString5.toLowerCase())){
-                initLineNum.add(i+1);
-                initLineContents.add(tempLine);
-
-            }
-            else if(tempLine.toLowerCase().contains(initString6.toLowerCase())){
-                initLineNum.add(i+1);
-                initLineContents.add(tempLine);
-
-            }
-            else if(tempLine.toLowerCase().contains(initString7.toLowerCase())){
-                initLineNum.add(i+1);
-                initLineContents.add(tempLine);
-
-            }
         }
+        initContentsLength = initLineContents.size();
+    }
+    public int getInitContentsLength(){
+        return initContentsLength;
     }
 
     public List<Integer> getInitLineNumArr(){
@@ -87,6 +87,53 @@ public class InitStates {
 
     public String getInitLineContents(int x){
         return initLineContents.get(x);
+    }
+
+    public void removeComments(){
+        String tempLine;
+
+        for (int i = 0; i < initContentsLength; i++) {
+            tempLine = initLineContents.get(i);
+
+            if (initContentsLength>i) {
+
+                if (tempLine.contains("//")) {
+                    initLineContents.remove(i);
+                    initLineNum.remove(i);
+                    initContentsLength--;
+                }
+                else if (tempLine.contains("*")) {
+                    initLineContents.remove(i);
+                    initLineNum.remove(i);
+                    initContentsLength--;
+                }
+                else if (tempLine.contains(" *")) {
+                    initLineContents.remove(i);
+                    initLineNum.remove(i);
+                    initContentsLength--;
+                }
+                else if (tempLine.contains(" * ")) {
+                    initLineContents.remove(i);
+                    initLineNum.remove(i);
+                    initContentsLength--;
+                }
+                else if (tempLine.contains("/*")) {
+                    initLineContents.remove(i);
+                    initLineNum.remove(i);
+                    initContentsLength--;
+                }
+                else if (tempLine.contains("\t*")) {
+                    initLineContents.remove(i);
+                    initLineNum.remove(i);
+                    initContentsLength--;
+                }
+
+            }
+            else
+                break;
+
+        }
+
     }
 
 

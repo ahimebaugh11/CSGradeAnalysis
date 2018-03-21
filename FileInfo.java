@@ -51,38 +51,7 @@ public class FileInfo {
 
         fileContent.remove(z);
     }
-    public void removeComments(){
-        String tempLine;
 
-        for (int i = 0; i < fileLength - 1; i++) {
-            if (fileContent.size()>i) {
-                tempLine = fileContent.get(i);
-                if (tempLine.contains("//")) {
-                    fileContent.remove(i);
-                }
-                else if (tempLine.contains("*")) {
-                    fileContent.remove(i);
-                }
-                else if (tempLine.contains(" *")) {
-                    fileContent.remove(i);
-                }
-                else if (tempLine.contains(" * ")) {
-                    fileContent.remove(i);
-                }
-                else if (tempLine.contains("/*")) {
-                    fileContent.remove(i);
-                }
-                else if (tempLine.contains("\t*")) {
-                    fileContent.remove(i);
-                }
-
-            }
-            else
-                break;
-
-            }
-            fileLength = fileContent.size();//resets size of fileContent
-        }
 
 
 
